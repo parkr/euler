@@ -13,4 +13,4 @@
                     (some (fn [modder]
                             (= (mod num modder) 0))
                      [3 5]))
-                  (range 100)))
+                  (range 1000)))
