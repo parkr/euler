@@ -9,17 +9,8 @@
 ;
 ; Code written by Parker Moore (@parkr)
 
-(defn multiple-of [base]
-  (fn [number]
-    (= (mod number base) 0)))
-
-(def multiple-of-three
-  (multiple-of 3))
-
-(def multiple-of-five
-   (multiple-of 5))
-
-(defn multiple? [number]
-  (or (multiple-of-five number) (multiple-of-three number)))
-
-(reduce + (filter multiple? (range 100)))
+(reduce + (filter (fn [num]
+                    (or
+                     (= (mod num 5) 0)
+                     (= (mod num 3) 0)))
+                  (range 100)))
