@@ -10,7 +10,7 @@
 ; Code written by Parker Moore (@parkr)
 
 (reduce + (filter (fn [num]
-                    (or
-                     (= (mod num 5) 0)
-                     (= (mod num 3) 0)))
+                    (some (fn [modder]
+                            (= (mod num modder) 0))
+                     [3 5]))
                   (range 100)))
